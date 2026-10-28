@@ -29,7 +29,7 @@ public class coffeeShop {
             System.out.println("3. Order items");
             System.out.println("4. View cart and checkout");
             System.out.println("5. Exit");
-            int choice = readChoice(scanner, "\n\nChoose an option: ");
+            int choice = readChoice(scanner, "\nChoose an option: ");
 
             switch (choice) {
                 case 1:
@@ -137,7 +137,7 @@ public class coffeeShop {
 
     private static void checkout(Scanner scanner, int[] coffeeCart, int[] dessertCart) {
         double total = 0.0;
-        System.out.println("\n=== Your Cart ===");
+        System.out.println("\n========= Your Cart ==========\n");
         for (int i = 0; i < coffeeCart.length; i++) {
             if (coffeeCart[i] > 0) {
                 double subtotal = coffeeCart[i] * COFFEE_PRICES[i];
@@ -160,8 +160,8 @@ public class coffeeShop {
             return;
         }
 
-        System.out.printf("Total: PHP %.2f%n", total);
-        System.out.println("1. Complete checkout");
+        System.out.printf("\nTotal: PHP %.2f%n", total);
+        System.out.println("\n1. Complete checkout");
         System.out.println("0. Back to main menu");
         int choice = readChoice(scanner, "Choose an option: ");
         if (choice == 1) {
@@ -189,7 +189,7 @@ public class coffeeShop {
 
     private static double readPayment(Scanner scanner, double total) {
         while (true) {
-            System.out.printf("Amount to pay (total PHP %.2f): PHP", total);
+            System.out.printf("\nAmount to pay (total PHP %.2f): PHP", total);
             String input = scanner.nextLine().trim();
             try {
                 double payment = Double.parseDouble(input);
@@ -209,7 +209,7 @@ public class coffeeShop {
             double total,
             double payment) {
         String receiptCode = String.format("CS-%06d", nextReceiptNumber++);
-        System.out.println("\n=== Coffee Shop Receipt ===");
+        System.out.println("\n======= Coffee Shop Receipt =======");
         System.out.println(String.format("Receipt: %s", receiptCode));
         System.out.println(String.format("%-25s %-4s %12s", "Product", "Qty", "Cost (PHP)"));
         System.out.println("-------------------------------------------");
